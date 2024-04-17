@@ -5,6 +5,7 @@ import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 
 import { MobileSidebar } from './mobile-sidebar'
+import { FormPopover } from '@/components/form/form-popover'
 
 const Navbar = () => {
   return (
@@ -14,12 +15,16 @@ const Navbar = () => {
         <div className="hidden md:flex">
           <Logo />
         </div>
-        <Button variant="primary" size="sm" className='hidden md:block rounded-sm h-auto py-1.5 px-2'>
-          Create
-        </Button>
-        <Button variant="primary" size="sm" className='md:hidden block rounded-sm'>
-          <Plus className='h-4 w-4' />
-        </Button>
+        <FormPopover align="start" side='bottom' sideOffset={18}>
+          <Button variant="primary" size="sm" className='hidden md:block rounded-sm h-auto py-1.5 px-2'>
+            Create
+          </Button>
+        </FormPopover>
+        <FormPopover>
+          <Button variant="primary" size="sm" className='md:hidden block rounded-sm'>
+            <Plus className='h-4 w-4' />
+          </Button>
+        </FormPopover>
       </div>
       <div className='ml-auto flex items-center gap-x-2'>
         <OrganizationSwitcher 

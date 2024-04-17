@@ -60,7 +60,7 @@ export const FormInput = forwardRef<HTMLImageElement, FormInputProps>(({
           "text-sm px-2 py-1 h-7",
           className,
         )}
-        aria-describeby={`${id}-error`}
+        aria-describedby={`${id}-error`}
         />
       </div>
       <FormErrors 
