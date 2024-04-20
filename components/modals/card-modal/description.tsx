@@ -52,6 +52,10 @@ export const Description = ({data}: DescriptionProps) => {
       queryClient.invalidateQueries({
         queryKey: ["card", data.id]
       })
+      queryClient.invalidateQueries({
+        queryKey: ["card-logs", data.id]
+      })
+
       toast.success(`Card "${data.title}" updated`)
       disableEditing()
     },
@@ -73,7 +77,7 @@ export const Description = ({data}: DescriptionProps) => {
 
   return (
     <div className='flex items-start gap-x-3 w-full'>
-      <AlignLeft className='h-5 w-5 mt-0.5 bg-neutral-700' />
+      <AlignLeft className='h-5 w-5 mt-0.5 bg-transparent' />
       <div className='w-full'>
         <p className='font-semibold text-neutral-700 mb-2'>
           Description
@@ -93,7 +97,7 @@ export const Description = ({data}: DescriptionProps) => {
               ref={textareaRef}
             />
             <div className='flex items-center gap-x-2'>
-              <FormSubmit>
+              <FormSubmit className=''>
                 Save
               </FormSubmit>
               <Button
@@ -120,7 +124,7 @@ export const Description = ({data}: DescriptionProps) => {
   )
 }
 
-Description.Skeleton = function HeaderSkeleton(){
+Description.Skeleton = function DescriptionSkeleton(){
   return (
     <div className='flex items-start gap-x-3 w-full'>
       <Skeleton className='h-6 w-6 bg-neutral-200' />
