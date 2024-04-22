@@ -3,7 +3,7 @@
 import { FormInput } from '@/components/form/form-input'
 import { Button } from '@/components/ui/button'
 import { Board } from '@prisma/client'
-import { ElementRef, useRef, useState } from 'react'
+import React, { ElementRef, useRef, useState } from 'react'
 
 import { updatedBoard } from '@/actions/update-board'
 import { useAction } from '@/hooks/use-action'
