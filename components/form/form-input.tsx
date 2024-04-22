@@ -1,11 +1,10 @@
 "use client"
 
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
-import { describe } from 'node:test'
 import { FormErrors } from './form-errors'
 
 interface FormInputProps {
@@ -21,7 +20,7 @@ interface FormInputProps {
   onBlur?: () => void
 }
 
-export const FormInput = forwardRef<HTMLImageElement, FormInputProps>(({
+export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   id,
   label,
   type,
@@ -47,20 +46,20 @@ export const FormInput = forwardRef<HTMLImageElement, FormInputProps>(({
           </Label>
         ) : null}
         <Input 
-        onBlur={onBlur}
-        defaultValue={defaultValue}
-        ref={ref}
-        required={required}
-        name={id}
-        id={id}
-        placeholder={placeholder}
-        type={type}
-        disabled={pending || disabled}
-        className={cn(
-          "text-sm px-2 py-1 h-7",
-          className,
-        )}
-        aria-describedby={`${id}-error`}
+          onBlur={onBlur}
+          defaultValue={defaultValue}
+          ref={ref}
+          required={required}
+          name={id}
+          id={id}
+          placeholder={placeholder}
+          type={type}
+          disabled={pending || disabled}
+          className={cn(
+            "text-sm px-2 py-1 h-7",
+            className,
+          )}
+          aria-describedby={`${id}-error`}
         />
       </div>
       <FormErrors 

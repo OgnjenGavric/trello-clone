@@ -62,7 +62,7 @@ export const BoardTitleForm = ({
     return (
       <form action={onSubmit} ref={formRef} className='flex items-center gap-x-2'>
         <FormInput 
-          ref={inputRef}
+          ref={formRef}
           id='title'
           onBlur={onBlur}
           defaultValue={title}
