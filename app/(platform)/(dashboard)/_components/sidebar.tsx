@@ -15,22 +15,27 @@ interface SidebarProps{
   storageKey?: string
 }
 
-const Sidebar = ({
+export const Sidebar = ({
   storageKey = "t-sidebar-state"
 }: SidebarProps) => {
-  const [ expanded, setExpanded ] = useLocalStorage<Record<string, any>>(storageKey, {})
+  const [ expanded, setExpanded ] = useLocalStorage<Record<string, any>>(
+    storageKey, 
+    {}
+  )
   const { 
-    organization: activeuseOrganization,
+    organization: activeOrganization,
     isLoaded: isLoadedOrg
   } = useOrganization()
+
   const { 
     userMemberships,
-    isLoaded: isLoadedList
+    isLoaded: isLoadedOrgList
   } = useOrganizationList({
     userMemberships: {
       infinite: true
     }
   })
+
   const defaultAccordionValue: string[] = Object.keys(expanded).reduce((acc:string[], key: string)=>{
     if(expanded[key]){
       acc.push(key)
@@ -46,7 +51,7 @@ const Sidebar = ({
     }))
   }
 
-  if(!isLoadedOrg || !isLoadedList || userMemberships.isLoading){
+  if(!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading){
     return(
       <>
         <div className='flex items-center justify-between mb-2'>
@@ -65,9 +70,9 @@ const Sidebar = ({
   return (
     <>
       <div className='font-medium text-xs flex items-center mb-1'>
-        <div className='pl-4'>
+        <span className='pl-4'>
           Workspaces
-        </div>
+        </span>
         <Button
           asChild
           type='button'
@@ -101,15 +106,4 @@ const Sidebar = ({
   )
 }
 
-NavItem.Skeleton = function SkeletonNavItem(){
-  return (
-    <div className='flex items-center gap-x-2'>
-      <div className='w-10 h-10 relative shrink-0'>
-        <Skeleton className="h-full w-full absolute"/>
-      </div>
-      <Skeleton className="h-10 w-full"/>
-    </div>
-  )
-}
 
-export default Sidebar

@@ -7,7 +7,7 @@ import { useMobileSidebar } from '@/hooks/use-mobile-sidebar'
 import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 import { Sheet, SheetContent } from '@/components/ui/sheet'
-import Sidebar from './sidebar'
+import {Sidebar} from './sidebar'
 
 export const MobileSidebar = () => {
   const pathname = usePathname()
