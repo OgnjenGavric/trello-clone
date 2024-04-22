@@ -1,6 +1,6 @@
 "use client"
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
@@ -42,7 +42,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
             htmlFor={id}
             className='text-xs font-semibold text-neutral-700'
           >
-            Label
+            {label}
           </Label>
         ) : null}
         <Input 

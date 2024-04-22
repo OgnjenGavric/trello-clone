@@ -7,7 +7,7 @@ import { Button } from '../ui/button'
 interface FormSubmitProps {
   children: React.ReactNode
   disabled?: boolean
-  className: string
+  className?: string
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "primary" 
 }
 
